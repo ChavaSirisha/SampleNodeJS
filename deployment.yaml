@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-deployment
+  labels:
+    app: samplenode
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: samplenode
+  template:
+    metadata:
+      labels:
+        app: samplenode
+    spec:
+      containers:
+      - name: samplenode
+        image: anithapatcha/nodejs:v1
+        ports:
+        - containerPort: 3000
